@@ -1,14 +1,26 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
+:root {
+    --tocmargin: 420px;
+    --contentWidth: 1500px;
+    --tocbackground: #ffffff;
+    --bodyBackground:#ffffff;
+    --contentBackground: #ffffff;
+}
+
 h1,h2,h3,h4,h5,h6,legend{
-    font-family:"Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+    /*    font-family:"Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif; */
+    font-family:"bahnschrift","ff-tisa-web-pro","Georgia",Arial,sans-serif;
     font-weight:700;
     margin-top:0;
 }
 
 h1{
     font-size:175%;
+    color: #f19fbb;
+    font-weight:bold;
+    text-transform:uppercase;    
     text-align: left !important;
     margin-bottom: 0.83em !important;
 }
@@ -30,7 +42,8 @@ h4{
 }
 
 h5{
-    font-size:110%;
+    font-size:115%;
+    font-style:italic;
 }
 
 h6{
@@ -38,7 +51,7 @@ h6{
 }
 
 h4,h5,h6{
-    color:#2980B9;
+    color:red;
     font-weight:300;
 }
 
@@ -51,9 +64,10 @@ html{
 }
 
 body{
-    background:#edf0f2;
+    background:var(--bodyBackground);
     color:#404040;
-    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
+    /*    font-family:"Lato","proxima-nova","Helvetica Neue",Arial,sans-serif; */
+    font-family:"Bahnschrift","Lato","Helvetica Neue",Arial,sans-serif;
     font-weight:normal;
     margin:0;
     min-height:100%;
@@ -61,11 +75,11 @@ body{
 }
 
 #content{
-    background:#fcfcfc;
+    background:var(--contentBackground);
     height:100%;
-    margin-left:300px;
+    margin-left:var(--tocmargin);
     /* margin:auto; */
-    max-width:800px;
+    max-width:var(--contentWidth);
     min-height:100%;
     padding:1.618em 3.236em;
 }
@@ -285,8 +299,8 @@ code{
     background:#fff;
     border:solid 1px #e1e4e5;
     /* color:#000;  for clickable code */
-    font-family:Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
-    font-size:75%;
+    font-family:"Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
+    font-size:100%;
     max-width:100%;
     overflow-x:auto;
     padding:0 5px;
@@ -315,18 +329,21 @@ code{
     border:1px solid #e1e4e5;
     margin-bottom:24px}
 
+/* also applies to source code */
 .codeblock,pre.src,#content .literal-block{
     border:1px solid #e1e4e5;
     padding:12px;
     overflow-x:auto;
-    background:#fff;
+    background:#222222;
     margin:1px 0 24px 0}
 
+/* SOURCE CODE BEFORE COMPILATION */
 pre.src{
-    /* color:#404040; */
+    color:#EEEEEE;
     display:block;
-    font-family:Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
-    font-size:12px;
+    font-family:"Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
+    font-weight:100;
+    font-size:14px;
     line-height:1.5;
     margin:1px 0px 24px 0px;
     overflow:auto;
@@ -334,11 +351,12 @@ pre.src{
     white-space:pre;
 }
 
+/* AFTER COMPILATION */
 .example{
-    background:#f3f6f6;
+    background:#eeeeee;
     border:1px solid #e1e4e5;
     color:#404040;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
     margin-bottom:24px;
     padding:12px;
@@ -376,13 +394,14 @@ table caption{
     padding:1em 0;
 }
 
-table tr:nth-child(2n-1) td{
+/* ORG TABLES FORMATTING = NO ALTERNATIVE COLOURS
+/*table tr:nth-child(2n-1) td{
     background-color:#f3f6f6;
 }
 
 table tr:nth-child(2n) td{
     background-color:white;
-}
+}*/
 
 .figure p{
     color:#000;
@@ -715,7 +734,7 @@ hr{
     background:#e3e3e3}
 
 #table-of-contents li.current a{
-    color:gray;
+    color:red;
     border-right:solid 1px #c9c9c9;
     padding:0.4045em 2.427em}
 
@@ -752,26 +771,32 @@ hr{
 #table-of-contents .local-toc li ul{
     display:block}
 
+/* TOC SUB HEADINGS */
 #table-of-contents li ul li a{
     margin-bottom:0;
-    color:#b3b3b3;
-    font-weight:normal}
+    color:black;
+    font-weight:normal;
+    font-size:14;
+}
 
+/* TOC Topic */
 #table-of-contents a{
     display:inline-block;
     line-height:18px;
     padding:0.4045em 1.618em;
     display:block;
     position:relative;
-    font-size:90%;
-    color:#b3b3b3;
+    font-size:100%;
+    font-weight:bold;
+    font-family:"bahnschrift";
+    color:#111111;
     direction: ltr;
 }
 
 #table-of-contents a:hover{
 	color: #ffffff !important;
-    background-color:#4e4a4a;
-    cursor:pointer}
+	background-color:#adadad;
+	cursor:pointer}
 
 /* #text-table-of-contents { */
 /*     overflow:scroll; */
@@ -781,11 +806,11 @@ hr{
     position:fixed;
     top:0;
     left:0;
-    width:300px;
+    width:var(--tocmargin);
     overflow-x:hidden;
-    overflow-y:scroll;
+    overflow-y:hidden; /*scroll; */
     height:100%;
-    background:#343131;
+    background:var(--tocbackground);
     z-index:200;
     scrollbar-base-color: #1F1D1D;
     scrollbar-arrow-color: #b3b3b3;
@@ -793,13 +818,16 @@ hr{
     scrollbar-track-color : #343131;
 }
 
+/* TOC HEADING */
 #table-of-contents h2{
     z-index:200;
-    background-color:#2980B9;
-    text-align:center;
-    padding:0.809em;
+    text-align: left !important;
+    background-color:#777777; 
+    /*    text-align:center;*/
+    text-transform:uppercase;
+    padding:0.6em 2em;
     display:block;
-    color:#fcfcfc;
+    color:#ffffff;
     font-size: 100%;
     margin-bottom:0.809em}
 
@@ -1136,3 +1164,6 @@ h2.footnotes{
     padding: 9px 12px;
     margin-bottom: 24px;
     font-family:"Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif}
+
+
+
